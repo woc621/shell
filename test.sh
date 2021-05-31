@@ -1,8 +1,8 @@
 #!/bin/bash
+set -euxo pipefail
 host=$1
 user=$2
 password=$3
-set -ueox pipefail
 args=(
     -h"$host"
     -u"$user"
