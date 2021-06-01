@@ -1,0 +1,12 @@
+A:
+eth0  连接internet
+eth1  连接局域网
+   sysctl -w net.ipv4.ip_forward=1
+   sysctl -p
+  iptables -P INPUT ACCEPT
+  iptables -P FORWARD ACCEPT
+  iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+B：
+
+eth1  与A.eth1处于同一网段，且网关设为A.eth1的IP。
